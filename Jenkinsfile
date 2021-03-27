@@ -1,5 +1,5 @@
 pipeline{
-        agent{label 'any'}
+        agent none
         stages{
             stage('source'){
             steps{
@@ -9,6 +9,7 @@ pipeline{
             stage('package'){
             steps{
                 sh 'mvn package'
-            }
-        }
-      }
+                 }
+             }
+       }
+}    
