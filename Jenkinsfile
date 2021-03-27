@@ -3,7 +3,7 @@ pipeline{
         stages{
             stage('source'){
             steps{
-                git 'https://github.com/devopstrainingvenkat/spring-petclinic.git'
+                git 'https://github.com/devopstrainingvenkat/game-of-life.git'
             }
             }
             stage('package'){
