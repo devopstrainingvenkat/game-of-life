@@ -1,20 +1,14 @@
-node('master'){
-    stage('scm'){
-        git 'https://github.com/devopstrainingvenkat/game-of-life'
-
-    }
-
-    stage('build'){
-        
-        sh label: '', script: 'mvn package'
-
-    }
-
-    stage('postbuild'){
-        
-        junit 'gameoflife-web/target/surefire-reports/*.xml'
-        archiveArtifacts artifacts: 'gameoflife-web/target/*.war', followSymlinks: false
-
-    }
-
-}
+pipeline{
+        agent{label 'any'}
+        stages{
+            stage('source'){
+            steps{
+                git 'https://github.com/devopstrainingvenkat/spring-petclinic.git'
+            }
+            }
+            stage('package'){
+            steps{
+                sh 'mvn package'
+            }
+        }
+      }
